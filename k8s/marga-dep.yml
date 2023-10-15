@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: two-tier-app
+  name: marga-app
   labels:
-    app: two-tier-app
+    app: marga-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: two-tier-app
+      app: marga-app
   template:
     metadata:
       labels:
-        app: two-tier-app
+        app: marga-app
     spec:
       containers:
-        - name: two-tier-app
-          image: trainwithshubham/flaskapp:latest
+        - name: marga-app
+          image: mrmarga/jamuntekapp:v1
           env:
             - name: MYSQL_HOST
-              value: "10.98.19.211"          # this is your mysql's service clusture IP, Make sure to change it with yours
+              value: "10.110.68.67"          # this is your mysql's service clusture IP, Make sure to change it with yours
             - name: MYSQL_PASSWORD
               value: "admin"
             - name: MYSQL_USER

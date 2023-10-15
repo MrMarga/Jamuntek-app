@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: mysql-app
   labels:
-    app: mysql
+    app: mysql-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: mysql-app
   template:
     metadata:
       labels:
-        app: mysql
+        app: mysql-app
     spec:
       containers:
-        - name: mysql
+        - name: mysql-app
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
@@ -34,4 +34,4 @@ spec:
       volumes:
         - name: mysqldata
           persistentVolumeClaim:
-            claimName: mysql-pvc    # PVC claim name
+            claimName: mysql    # PVC claim name
